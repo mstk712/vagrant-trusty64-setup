@@ -3,7 +3,7 @@
   become: yes
   tasks:
     - name: uname -r
-      shell: uname -r | sed -e 's/generic/virtual/'
+      shell: uname -r
       register: kernel_release
 
     - name: apt-get install packages
@@ -50,3 +50,11 @@
         update_cache: yes
       with_items:
         - docker-ce
+
+    - name: apt-get install package
+      apt:
+        pkg: '{{ item }}'
+        state: present
+        update_cache: yes
+      with_items:
+        - language-pack-UTF-8
