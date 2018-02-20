@@ -57,4 +57,5 @@
         state: present
         update_cache: yes
       with_items:
-        - language-pack-UTF-8
+        - language-pack-ja-base
+        - language-pack-ja
